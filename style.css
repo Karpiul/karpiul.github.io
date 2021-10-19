@@ -1,0 +1,34 @@
+.jumbotron {
+  padding-top: 6rem;
+  background-color: #bfb8ae;
+}
+
+#projects {
+  background-color: #bfb8ae;
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 5px;
+  background-color: #bfb8ae;
+  color: #ffffff;
+}
+
+section {
+  padding-top: 5rem;
+}
+
+footer a {
+  color: #403c34;
+  font-weight: bolder;
+}
+
+footer p {
+  font-family: trebuchet MS;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #bfb8ae;
+}
