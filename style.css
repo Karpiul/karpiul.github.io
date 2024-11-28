@@ -1,191 +1,289 @@
-/* General Reset */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #444;
-  background-color: #f0f2f5;
-  line-height: 1.6;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+/* Mengatur z-index dari header agar tidak menutupi form login */
+.header {
+    z-index: 99;
 }
 
-a {
-  text-decoration: none;
+/* Mengatur video background agar tidak mengganggu form login */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
 }
 
-p {
-  margin: 0 0 1em;
+/* Mengatur video sebagai background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #1a1a1a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.navbar-brand {
-  font-weight: bold;
-  color: #00adb5;
+/* Mengatur posisi form login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0; /* Menggantikan top, left, right, bottom agar memenuhi seluruh layar */
+    z-index: 1;
 }
 
-.navbar-brand:hover {
-  color: #ff5722;
+.login-box {
+    width: 400px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.nav-link {
-  color: #ddd;
-  font-weight: 500;
-  margin: 0 0.5rem;
-  transition: color 0.2s ease-in-out;
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
 }
 
-.nav-link:hover {
-  color: #00adb5;
+.Logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
 }
 
-.navbar-toggler {
-  border: none;
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.8)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
 }
 
-/* Jumbotron */
-.jumbotron {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: white;
-  padding: 5rem 0;
-  text-align: center;
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.navigation  .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color:#fff;
+    font-weight: 500px;
+    margin-left: 40px;
+    transition: .5s;
 }
 
-.jumbotron img {
-  border: 4px solid #00adb5;
-  padding: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.navigation  .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+
 }
 
-.jumbotron img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+.wrapper {
+    position: fixed; /* Menggunakan posisi tetap agar selalu di atas */
+    top: 50%; /* Menempatkan posisi di tengah vertikal */
+    left: 50%; /* Menempatkan posisi di tengah horizontal */
+    transform: translate(-50%, -50%); /* Menyetel posisi ke benar-benar tengah */
+    width: 400px; /* Ukuran kotak form */
+    height: auto; /* Menyesuaikan tinggi sesuai konten */
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Memastikan berada di atas elemen lain */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.jumbotron h1 {
-  font-size: 2.8rem;
-  margin-top: 1rem;
-  font-weight: 700;
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+
 }
 
-.jumbotron p {
-  font-size: 1.1rem;
-  font-weight: 400;
+.wrapper .icon-close {
+    position: absolute;
+    top: 10px; /* Sesuaikan jika perlu */
+    right: 10px; /* Sesuaikan jika perlu */
+    width: 35px;
+    height: 35px;
+    background: #162938;
+    font-size: 1.5em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Membuat tombol close berbentuk bulat */
+    cursor: pointer;
+    z-index: 10; /* Pastikan ini di atas elemen lain */
 }
 
-/* Section Titles */
-h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: #1a1a1a;
-  position: relative;
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
 }
 
-h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: #00adb5;
-  margin: 0.5rem auto;
+.input-box input:not(:placeholder-shown) ~ label,
+.input-box input:focus ~ label {
+    top: -5px;
+    font-size: 0.85em;
+    color: #162938;
 }
 
-/* About Section */
-#about {
-  padding: 4rem 0;
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
 }
 
-#about p {
-  color: #555;
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+
 }
 
-/* Projects Section */
-#projects {
-  background-color: #fff;
-  padding: 4rem 0;
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
 }
 
-.card {
-  border: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
 }
 
-.card-img-top {
-  border-radius: 5px 5px 0 0;
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-.card-body {
-  background-color: #f9f9f9;
-  padding: 1.5rem;
-  color: #333;
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+
 }
 
-/* Contact Section */
-#contact {
-  background: linear-gradient(135deg, #302b63, #0f0c29);
-  color: white;
-  padding: 4rem 0;
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
 }
 
-#contact input,
-#contact textarea {
-  border: 1px solid #555;
-  background-color: #1a1a1a;
-  color: white;
-  padding: 10px;
-  margin-bottom: 1rem;
+.remember-forgot a:hover {
+    text-decoration: underline;
+
 }
 
-#contact input:focus,
-#contact textarea:focus {
-  border-color: #00adb5;
-  outline: none;
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
 }
 
-button[type="submit"] {
-  background-color: #00adb5;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
 }
 
-button[type="submit"]:hover {
-  background-color: #ff5722;
-  transform: scale(1.05);
+.login-register p a  {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-/* Footer */
-footer {
-  background-color: #1a1a1a;
-  color: #ddd;
-  text-align: center;
-  padding: 1.5rem 0;
-  font-size: 0.9rem;
+.login-register p a:hover {
+    text-decoration: underline;
 }
 
-footer a {
-  color: #00adb5;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #ff5722;
-}
