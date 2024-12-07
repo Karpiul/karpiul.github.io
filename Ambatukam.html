@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Mengimpor font dari Google Fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Member Anggota JMK48</title>
+    <style>
+     body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Background modern */
+            color: #fff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif; /* Font mewah untuk judul */
+        }
+
+        .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            transition: all 0.3s ease; /* Animasi saat hover */
+        }
+
+        .member img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            transition: transform 0.3s ease; /* Efek animasi pada gambar */
+        }
+
+        .member:hover img {
+            transform: scale(1.1); /* Memperbesar gambar saat hover */
+        }
+
+        .details {
+            max-width: 600px;
+            font-size: 1.1rem;
+        }
+
+        .member:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Efek hover pada biodata */
+            border-color: #fff;
+        }
+
+        .ketua img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .ketua .details {
+            font-weight: bold;
+        }
+
+        /* Media Query untuk tampilan di layar kecil (handphone) */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .member {
+                flex-direction: column; /* Membuat gambar dan teks berada satu per satu (vertikal) */
+                align-items: flex-start;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .member img {
+                width: 80px; /* Menyesuaikan ukuran gambar untuk layar kecil */
+                height: 80px;
+                margin-bottom: 10px;
+            }
+
+            .details {
+                padding: 5px;
+            }
+        }
+
+        /* Media Query untuk layar yang lebih besar seperti tablet */
+        @media (max-width: 1024px) {
+            .container {
+                width: 90%;
+            }
+
+            .member img {
+                width: 90px;
+                height: 90px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Media Query untuk tampilan di layar kecil (handphone) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .member {
+        flex-direction: column; /* Membuat gambar dan teks berada satu per satu (vertikal) */
+        align-items: flex-start;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .member img {
+        width: 80px; /* Menyesuaikan ukuran gambar untuk layar kecil */
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .details {
+        padding: 5px;
+    }
+
+    footer {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+/* Media Query untuk layar yang lebih besar seperti tablet */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .member img {
+        width: 90px;
+        height: 90px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+        /* Gaya dasar */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1f4037, #99f2c8); /* Gradien hijau */
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-out;
+        }
+        h2 {
+            text-align: center;
+            margin: 20px 0 10px;
+            font-size: 2rem;
+            color: #eafaf1;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            animation: slideInFromLeft 1s ease-out;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .member {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8); /* Warna latar transparan */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+        .member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: #eafaf1;
+        }
+        .member img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 20px;
+            border: 2px solid #2ecc71;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .member:hover img {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 0 10px #2ecc71;
+        }
+        .details {
+            padding: 10px;
+        }
+        .details p {
+            margin: 5px 0;
+            transition: color 0.3s ease;
+        }
+        .member:hover .details p {
+            color: #16a085;
+        }
+        .details strong {
+            color: #2c3e50;
+        }
+        .ketua img {
+            border: 3px solid #e74c3c;
+        }
+        .ketua .details p {
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: linear-gradient(135deg, #99f2c8, #1f4037); /* Gradien hijau terbalik */
+            color: #ffffff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        footer a {
+            color: #1abc9c;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Member Anggota JMK48</h1>
+    <div class="container">
+
+        <!-- Ketua -->
+        <h2>Ketua JMK48</h2>
+        <div class="member ketua">
+            <img src="AMBATUKAM.jpg" alt="Foto Ketua">
+            <div class="details">
+                <p><strong>Nama:</strong> Ambasikma</p>
+                <p><strong>Umur:</strong> 25 tahun</p>
+                <p><strong>Alamat:</strong> Ngawi Central</p>
+                <p><strong>Hobi:</strong> Membaca & Menulis</p>
+            </div>
+        </div>
+
+        <!-- Officer -->
+        <h2>Officer JMK48</h2>
+        <div class="member officer">
+            <img src="Rusdingawi.jpeg" alt="Foto Officer 1">
+            <div class="details">
+                <p><strong>Nama:</strong> Mas Rusdi</p>
+                <p><strong>Umur:</strong> 24 tahun</p>
+                <p><strong>Alamat:</strong> Ngawi Selatan</p>
+                <p><strong>Hobi:</strong> Memotong Rambut</p>
+            </div>
+        </div>
+        <div class="member officer">
+            <img src="Faiz.png" alt="Foto Officer 2">
+            <div class="details">
+                <p><strong>Nama:</strong> Mas Faiz</p>
+                <p><strong>Umur:</strong> 27 tahun</p>
+                <p><strong>Alamat:</strong> Ngawi Barat</p>
+                <p><strong>Hobi:</strong> Bersepeda</p>
+            </div>
+        </div>
+
+        <!-- Anggota -->
+        <h2>Member JMK48</h2>
+        <div class="member">
+            <img src="images.jpeg" alt="Foto Anggota 1">
+            <div class="details">
+                <p><strong>Nama:</strong> Mas Fuad</p>
+                <p><strong>Umur:</strong> 22 tahun</p>
+                <p><strong>Alamat:</strong> Ngawi Timur</p>
+                <p><strong>Hobi:</strong> Memasak</p>
+            </div>
+        </div>
+        <div class="member">
+            <img src="Narjikontol.png" alt="Foto Anggota 2">
+            <div class="details">
+                <p><strong>Nama:</strong> Mas Narji</p>
+                <p><strong>Umur:</strong> 29 tahun</p>
+                <p><strong>Alamat:</strong> Ngawi Center</p>
+                <p><strong>Hobi:</strong> Makan Banyak</p>
+            </div>
+        </div>
+        <div class="member">
+            <img src="Rehanwangsaffkontol.jpg" alt="Foto Anggota 3">
+            <div class="details">
+                <p><strong>Nama:</strong> Rehan Wangsaff</p>
+                <p><strong>Umur:</strong> 23 tahun</p>
+                <p><strong>Alamat:</strong> Bogor</p>
+                <p><strong>Hobi:</strong> Joget</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 JMK48. Dibuat dengan 💚 oleh Tim JMK48.
+    </footer>
+</body>
+</html>
