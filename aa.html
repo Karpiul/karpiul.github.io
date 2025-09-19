@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas dari bang irul</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to bottom, #d32f2f, #fff);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .bungkus {
+      background: #fff;
+      padding: 20px;
+      margin: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .box {
+      border: 2px solid #b71c1c;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    .judul {
+      background: linear-gradient(to right, #d32f2f, #fff);
+      color: white;
+      border: none;
+    }
+
+    .judul h1 {
+      margin: 0;
+    }
+
+    .bendera img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .lagu audio {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .lirik {
+      font-size: 18px;
+      font-weight: bold;
+      white-space: pre-line;
+      min-height: 140px;
+    }
+
+    .ketik {
+      border-right: 2px solid black;
+      display: inline-block;
+      animation: blink 0.6s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: black; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bungkus">
+    <!-- Judul -->
+    <div class="box judul">
+      <h1>INDONESIA RAYA</h1>
+    </div>
+
+    <!-- Gambar Bendera -->
+    <div class="box bendera">
+      <img src="bendera-merah-putih.jpg" alt="Bendera Merah Putih">
+    </div>
+
+    <!-- Audio Lagu -->
+    <div class="box lagu">
+      <p>Putar Lagu:</p>
+      <audio id="player" controls>
+        <source src="indonesiaraya.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <!-- Teks Lirik -->
+    <div class="box lirik" id="teksLirik"></div>
+  </div>
+
+  <script>
+    const teksBox = document.getElementById("teksLirik");
+    const player = document.getElementById("player");
+
+    // lirik lagu indonesia raya
+    let lirik = [
+      { teks: "Indonesia tanah airku,", waktu: 0, sudah: false },
+      { teks: "Tanah tumpah darahku,", waktu: 5, sudah: false },
+      { teks: "Di sanalah aku berdiri,", waktu: 10, sudah: false },
+      { teks: "Jadi pandu ibuku.", waktu: 15, sudah: false },
+      { teks: "Indonesia kebangsaanku,", waktu: 20, sudah: false },
+      { teks: "Bangsa dan tanah airku,", waktu: 25, sudah: false },
+      { teks: "Marilah kita berseru,", waktu: 30, sudah: false },
+      { teks: "Indonesia bersatu.", waktu: 35, sudah: false },
+      { teks: "Hiduplah tanahku,", waktu: 40, sudah: false },
+      { teks: "Hiduplah negeriku,", waktu: 43, sudah: false },
+      { teks: "Bangsaku, rakyatku, semuanya.", waktu: 45, sudah: false },
+      { teks: "Bangunlah jiwanya,", waktu: 50, sudah: false },
+      { teks: "Bangunlah badannya,", waktu: 53, sudah: false },
+      { teks: "Untuk Indonesia Raya.", waktu: 55, sudah: false },
+      { teks: "Indonesia Raya, merdeka, merdeka,", waktu: 60, sudah: false },
+      { teks: "Tanahku, negeriku yang kucinta.", waktu: 65, sudah: false },
+      { teks: "Indonesia Raya, merdeka, merdeka,", waktu: 70, sudah: false },
+      { teks: "Hiduplah Indonesia Raya.", waktu: 75, sudah: false }
+    ];
+
+    let intervalKetik;
+
+    function ketik(teks) {
+      teksBox.innerHTML = "";
+      let span = document.createElement("span");
+      span.classList.add("ketik");
+      teksBox.appendChild(span);
+
+      let i = 0;
+      clearInterval(intervalKetik);
+      intervalKetik = setInterval(() => {
+        if (i < teks.length) {
+          span.textContent += teks[i];
+          i++;
+        } else {
+          clearInterval(intervalKetik);
+        }
+      }, 110);
+    }
+
+    function resetLirik() {
+      lirik.forEach(baris => baris.sudah = false);
+      teksBox.innerHTML = "";
+      clearInterval(intervalKetik);
+    }
+
+    // Event saat lagu berjalan
+    player.addEventListener("timeupdate", () => {
+      for (let x of lirik) {
+        if (!x.sudah && player.currentTime >= x.waktu) {
+          ketik(x.teks);
+          x.sudah = true;
+          break;
+        }
+      }
+    });
+
+    // Reset saat diputar ulang
+    player.addEventListener("play", () => {
+      if (player.currentTime === 0) {
+        resetLirik();
+      }
+    });
+
+    // Reset saat lagu selesai
+    player.addEventListener("ended", () => {
+      resetLirik();
+    });
+
+    // Reset saat loncat waktu
+    player.addEventListener("seeked", () => {
+      resetLirik();
+    });
+  </script>
+</body>
+</html>
